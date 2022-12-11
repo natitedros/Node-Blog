@@ -12,4 +12,8 @@ router.get('/:id', blogController.blog_details)
 
 router.delete('/:id', blogController.blog_delete)
 
+router.get('/update/:id', blogController.blog_update_get)
+
+router.post('/update/:id', blogController.blog_update_put)
+
 module.exports = router
