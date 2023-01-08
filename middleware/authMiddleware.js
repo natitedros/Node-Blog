@@ -2,9 +2,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
 const requireAuth = (req, res, next) => {
-
     const token = req.cookies.jwt
-    
     //check if token exists and verify it
     if (token){
         jwt.verify(token, 'natitedros secret', (err, decodedToken) => {
@@ -13,7 +11,7 @@ const requireAuth = (req, res, next) => {
                 res.redirect('../../login')
             }
             else{
-                console.log(decodedToken)
+                //what we want
                 next()
             }
         })
@@ -26,7 +24,6 @@ const requireAuth = (req, res, next) => {
 //check if user is logged in and send the user details to the front end if so
 const checkUser = (req, res, next)=>{
     const token = req.cookies.jwt
-    console.log(token)
     if (token){
         jwt.verify(token, 'natitedros secret', async (err, decodedToken) => {
             if (err){
@@ -35,7 +32,6 @@ const checkUser = (req, res, next)=>{
                 next()
             }
             else{
-                console.log(decodedToken)
                 const user = await User.findById(decodedToken.id)
                 res.locals.user = user
                 next()
