@@ -1,7 +1,11 @@
 const express = require('express')
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
+
 const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes')
+const authRoutes = require('./routes/authRoutes')
+const { requireAuth, checkUser } = require('./middleware/authMiddleware')
 //const { render } = require('express/lib/response')
 
 //connect to mongodb
@@ -25,16 +29,20 @@ app.listen(3000)
 app.use(morgan('dev'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
+app.use(express.json());
+app.use(cookieParser())
+
+app.get('*', checkUser)
 
 app.get('/', (req, res) => {
-
     res.redirect('/blogs')
-
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {title: 'About'})
 })
+
+app.use(authRoutes)
 
 //checks the path inside the blog routes file
 app.use('/blogs', blogRoutes)

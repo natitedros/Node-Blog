@@ -11,7 +11,9 @@
         <div class="content">
             <p><%= blog.body%></p>
         </div>
+        <% if (user) { %>
         <a class="delete" data-doc="<%= blog._id%>"> Delete</a>
+        <% } %>
         <a class="update" href="/blogs/update/<%= blog._id%>"> Update</a>
     </div>
 
@@ -21,7 +23,7 @@
         const del = document.querySelector('a.delete');
         del.addEventListener('click', (e)=>{
             const id = e.target.dataset.doc
-            fetch(`/blogs/${id}`,{
+            fetch(`/blogs/delete/${id}`,{
                 method: 'DELETE'
             })
             .then((response)=>response.json())
