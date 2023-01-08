@@ -132,8 +132,10 @@ textarea {
 }
 .signupbtn{
   background-color: lightcoral;
-  padding: 15px;
+  padding: 7px;
   color: #ddd;
   border-radius: 2rem;
   border: #ddd;
+  font-family: "Noto Serif", serif;
+  font-size: large;
 }
