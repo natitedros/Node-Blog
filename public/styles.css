@@ -130,3 +130,10 @@ textarea {
   font-size: 1.2em;
   cursor: pointer;
 }
+.signupbtn{
+  background-color: lightcoral;
+  padding: 15px;
+  color: #ddd;
+  border-radius: 2rem;
+  border: #ddd;
+}
