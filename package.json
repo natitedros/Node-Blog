@@ -8,5 +8,27 @@
     "mongoose": "^6.8.0",
     "morgan": "^1.10.0",
     "validator": "^13.7.0"
-  }
+  },
+  "name": "node-blog",
+  "description": "This is a repo for building a blog page to practice NodeJs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natitedros/Node-Blog.git"
+  },
+  "author": "Natnael Tedros Desta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natitedros/Node-Blog/issues"
+  },
+  "homepage": "https://github.com/natitedros/Node-Blog#readme"
 }
